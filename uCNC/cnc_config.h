@@ -112,18 +112,18 @@ extern "C"
 	 * Override default configuration settings. Use _PER_AXIS parameters to
 	 * define different settings for each axis.
 	 */
-
-	// #define DEFAULT_DIR_INV_MASK 0
-	// #define DEFAULT_LIMIT_INV_MASK 0
+																										//////////////// RBasile
+#define DEFAULT_DIR_INV_MASK 7
+#define DEFAULT_LIMIT_INV_MASK 6
 	// #define DEFAULT_SOFT_LIMITS_ENABLED 0
-	// #define DEFAULT_HARD_LIMITS_ENABLED 0
-	// #define DEFAULT_HOMING_ENABLED 0
+// #define DEFAULT_HARD_LIMITS_ENABLED 0
+// #define DEFAULT_HOMING_ENABLED 0
 	// #define DEFAULT_HOMING_DIR_INV_MASK 0
 	// #define DEFAULT_HOMING_FAST 50
 	// #define DEFAULT_HOMING_SLOW 10
 	// #define DEFAULT_HOMING_OFFSET 2
 	// #define DEFAULT_STEP_PER_MM 200
-	// #define DEFAULT_STEP_PER_MM_PER_AXIS {200, 200, 200}
+#define DEFAULT_STEP_PER_MM_PER_AXIS {72.5811,72.5811,2133.333}
 	// #define DEFAULT_MAX_FEED 500
 	// #define DEFAULT_MAX_FEED_PER_AXIS {500, 500, 500}
 	// #define DEFAULT_ACCEL 10

@@ -102,8 +102,17 @@ WEAK_EVENT_HANDLER(cnc_alarm)
 }
 #endif
 
+#include <Arduino.h>
+#define BEEPER  4
+#define BEEP_ON()  TCCR0B = (TCCR0B & 0b11111000) | 0x02; analogWrite(BEEPER, 127);
+#define BEEP_OFF() TCCR0B = (TCCR0B & 0b11111000) | 0x03; analogWrite(BEEPER, 255);
+
+
 void cnc_init(void)
 {
+
+
+
 	// initializes cnc state
 #ifdef FORCE_GLOBALS_TO_0
 	memset(&cnc_state, 0, sizeof(cnc_state_t));
