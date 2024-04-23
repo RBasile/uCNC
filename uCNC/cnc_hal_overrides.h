@@ -25,6 +25,18 @@ extern "C"
 #define ENABLE_PARSER_MODULES
 //Custom configurations
 
+//RBasile
+#define SERVO_SPINDLE_MAX  1832    //(MILL MOTOR input: 1060 us equal to Full CCW, 1460us equal to zero, 1860us equal to Full CW)
+#define SERVO_SPINDLE_MIN  1148
+#define SERVO_SPINDLE_ZERO  1488
+#define SERVO_SPINDLE_ARM  1550
+
+
+
+#define SPINDLE_MAX_RPM  14684    // spindle max rpm in marlin: RPM_SPINDLE_MAX
+#define SPINDLE_MIN_RPM  0     // spindle min rpm in marlin: RPM_SPINDLE_MIN
+
+
 
 #ifdef __cplusplus
 }

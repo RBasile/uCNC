@@ -67,7 +67,7 @@ static void startup_code(void)
 	io_set_pwm(SPINDLE_BESC_SERVO, SPINDLE_BESC_MID);
 #endif
 	io_set_output(SPINDLE_BESC_POWER_RELAY);
-	io_set_output(SPINDLE_SERVO_POWER_RELAY);
+	io_clear_output(SPINDLE_SERVO_POWER_RELAY); // low is servo On for BESC RBasile
 	cnc_delay_ms(1000);
 #if ASSERT_PIN(SPINDLE_BESC_SERVO)
 	io_set_pwm(SPINDLE_BESC_SERVO, SPINDLE_BESC_LOW);
@@ -83,7 +83,7 @@ static void shutdown_code(void)
 	io_clear_output(SPINDLE_BESC_POWER_RELAY);
 #endif
 #if ASSERT_PIN(SPINDLE_SERVO_POWER_RELAY)
-	io_clear_output(SPINDLE_SERVO_POWER_RELAY);
+	io_set_output(SPINDLE_SERVO_POWER_RELAY); // high is servo On for BESC RBasile
 #endif
 }
 
