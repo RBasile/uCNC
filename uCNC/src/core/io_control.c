@@ -319,19 +319,19 @@ uint8_t io_get_limits(void)
 	value |= ((io_get_input(LIMIT_X)) ? LIMIT_X_IO_MASK : 0);
 #endif
 #if ASSERT_PIN(LIMIT_Y)
-	value |= ((io_get_input(LIMIT_Y)) ? LIMIT_Y_IO_MASK : 0);
+	value |= ((!io_get_input(LIMIT_Y)) ? LIMIT_Y_IO_MASK : 0); //RBasile Invert at the limit pin level
 #endif
 #if ASSERT_PIN(LIMIT_Z)
-	value |= ((io_get_input(LIMIT_Z)) ? LIMIT_Z_IO_MASK : 0);
+	value |= ((!io_get_input(LIMIT_Z)) ? LIMIT_Z_IO_MASK : 0); //RBasile Invert at the limit pin level
 #endif
 #if ASSERT_PIN(LIMIT_X2)
-	value |= ((io_get_input(LIMIT_X2)) ? LIMIT_X2_IO_MASK : 0);
+	value |= ((io_get_input(LIMIT_X2)) ? LIMIT_X2_IO_MASK : 0); 
 #endif
 #if ASSERT_PIN(LIMIT_Y2)
-	value |= ((io_get_input(LIMIT_Y2)) ? LIMIT_Y2_IO_MASK : 0);
+	value |= ((!io_get_input(LIMIT_Y2)) ? LIMIT_Y2_IO_MASK : 0); //RBasile Invert at the limit pin level
 #endif
 #if ASSERT_PIN(LIMIT_Z2)
-	value |= ((io_get_input(LIMIT_Z2)) ? LIMIT_Z2_IO_MASK : 0);
+	value |= ((!io_get_input(LIMIT_Z2)) ? LIMIT_Z2_IO_MASK : 0); //RBasile Invert at the limit pin level
 #endif
 #if ASSERT_PIN(LIMIT_A)
 	value |= ((io_get_input(LIMIT_A)) ? LIMIT_A_IO_MASK : 0);

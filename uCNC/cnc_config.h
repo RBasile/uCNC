@@ -113,12 +113,13 @@ extern "C"
 	 * define different settings for each axis.
 	 */
 																										//////////////// RBasile
-#define DEFAULT_DIR_INV_MASK 7
-#define DEFAULT_LIMIT_INV_MASK 6
+#define DEFAULT_DIR_INV_MASK 3 // x and y are inverted z is not because it's the bed that move
+#define DEFAULT_LIMIT_INV_MASK 0 // Y and Z are inverted in IO_control because the state is merge with Y and Y2 that make the invertion with the mask only work when both siwth are press
+#define DEFAULT_PROBE_INV_MASK 1
 	// #define DEFAULT_SOFT_LIMITS_ENABLED 0
 // #define DEFAULT_HARD_LIMITS_ENABLED 0
 // #define DEFAULT_HOMING_ENABLED 0
-	// #define DEFAULT_HOMING_DIR_INV_MASK 0
+	 #define DEFAULT_HOMING_DIR_INV_MASK 4 //Z homme is inverted
 	// #define DEFAULT_HOMING_FAST 50
 	// #define DEFAULT_HOMING_SLOW 10
 	// #define DEFAULT_HOMING_OFFSET 2
@@ -129,7 +130,8 @@ extern "C"
 	// #define DEFAULT_ACCEL 10
 	// #define DEFAULT_ACCEL_PER_AXIS {10, 10, 10}
 	// #define DEFAULT_MAX_DIST 200
-	// #define DEFAULT_MAX_DIST_PER_AXIS {200, 200, 50}
+
+	#define DEFAULT_MAX_DIST_PER_AXIS {214, 234, 241.5}
 	// #define DEFAULT_ARC_TOLERANCE 0.002
 	// #define DEFAULT_DEBOUNCE_MS 250
 
