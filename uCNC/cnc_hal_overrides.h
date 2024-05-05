@@ -20,10 +20,11 @@ extern "C"
 #define TOOL1 spindle_besc
 #define SPINDLE_BESC_SERVO SERVO0
 #define SPINDLE_BESC_POWER_RELAY DOUT0
-#define SPINDLE_SERVO_POWER_RELAY DOUT1
+
 #define ENCODERS 0
 #define ENABLE_PARSER_MODULES
 //Custom configurations
+
 
 //RBasile
 #define SERVO_SPINDLE_MAX  1832    //(MILL MOTOR input: 1060 us equal to Full CCW, 1460us equal to zero, 1860us equal to Full CW)
@@ -33,8 +34,8 @@ extern "C"
 
 
 
-#define SPINDLE_MAX_RPM  14684    // spindle max rpm in marlin: RPM_SPINDLE_MAX
-#define SPINDLE_MIN_RPM  0     // spindle min rpm in marlin: RPM_SPINDLE_MIN
+#define DEFAULT_SPINDLE_MAX_RPM  14684    // spindle max rpm in marlin: RPM_SPINDLE_MAX
+#define DEFAULT_SPINDLE_MIN_RPM  0     // spindle min rpm in marlin: RPM_SPINDLE_MIN
 
 
 

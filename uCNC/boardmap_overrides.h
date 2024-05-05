@@ -70,8 +70,8 @@ extern "C"
 //#define SERVO3_PORT G
 #define DOUT0_BIT 0
 #define DOUT0_PORT G
-#define DOUT1_BIT 1
-#define DOUT1_PORT A
+//#define DOUT1_BIT 1
+//#define DOUT1_PORT A
 //#define DOUT5_BIT 0
 //#define DOUT5_PORT H
 //#define DOUT6_BIT 1
