@@ -67,17 +67,17 @@ uint8_t kinematics_home(void)
 
 #ifndef ENABLE_XY_SIMULTANEOUS_HOMING
 
-#if AXIS_X_HOMING_MASK != 0
-	if (mc_home_axis(AXIS_X_HOMING_MASK, LINACT0_LIMIT_MASK))
-	{
-		return KINEMATIC_HOMING_ERROR_X;
-	}
-#endif
-
 #if AXIS_Y_HOMING_MASK != 0
 	if (mc_home_axis(AXIS_Y_HOMING_MASK, LINACT1_LIMIT_MASK))
 	{
 		return KINEMATIC_HOMING_ERROR_Y;
+	}
+#endif
+
+#if AXIS_X_HOMING_MASK != 0
+	if (mc_home_axis(AXIS_X_HOMING_MASK, LINACT0_LIMIT_MASK))
+	{
+		return KINEMATIC_HOMING_ERROR_X;
 	}
 #endif
 
