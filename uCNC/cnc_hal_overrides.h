@@ -16,6 +16,7 @@ extern "C"
 //#define LIMIT_Z_PULLUP_ENABLE
 //#define LIMIT_X2_PULLUP_ENABLE
 //#define LIMIT_Y2_PULLUP_ENABLE
+#define INVERT_EMERGENCY_STOP 
 #define PROBE_PULLUP_ENABLE
 #define TOOL1 spindle_besc
 #define SPINDLE_BESC_SERVO SERVO0

@@ -110,9 +110,6 @@ WEAK_EVENT_HANDLER(cnc_alarm)
 
 void cnc_init(void)
 {
-
-
-
 	// initializes cnc state
 #ifdef FORCE_GLOBALS_TO_0
 	memset(&cnc_state, 0, sizeof(cnc_state_t));
@@ -129,6 +126,10 @@ void cnc_init(void)
 	settings_init();									// settings
 	itp_init();											// interpolator
 	planner_init();										// motion planner
+
+io_set_output(DOUT6); // turn On the amb Light RBASILE
+io_set_output(DOUT7);io_set_output(DOUT8);io_clear_output(DOUT9); // Blue Color RBasile
+
 #if TOOL_COUNT > 0
 	tool_init();
 #endif
@@ -143,17 +144,19 @@ void cnc_run(void)
 
 	// tries to reset. If fails jumps to error
 	while (cnc_unlock(false) != UNLOCK_ERROR)
-	{
+	{	
 		cnc_state.loop_state = LOOP_RUNNING;
 		do
 		{
+			io_clear_output(DOUT7);io_clear_output(DOUT8);io_clear_output(DOUT9); // White Color RBasile
 			cnc_parse_cmd();
 		} while (cnc_dotasks());
 
 		cnc_state.loop_state = LOOP_FAULT;
 		int8_t alarm = cnc_state.alarm;
 		if (alarm > EXEC_ALARM_NOALARM)
-		{
+		{	
+			io_clear_output(DOUT7);io_clear_output(DOUT8);io_set_output(DOUT9); // yellow Color RBasile
 			protocol_send_alarm(cnc_state.alarm);
 		}
 		if (alarm < EXEC_ALARM_PROBE_FAIL_INITIAL && alarm != EXEC_ALARM_NOALARM)
@@ -163,10 +166,12 @@ void cnc_run(void)
 			cnc_state.loop_state = LOOP_REQUIRE_RESET;
 			break;
 		}
+		
 	}
 
 	do
 	{
+		io_clear_output(DOUT7);io_set_output(DOUT8);io_set_output(DOUT9); // Red Color RBasile
 		if (serial_available())
 		{
 			if (serial_getc() == EOL)
@@ -625,7 +630,10 @@ void cnc_dwell_ms(uint32_t milliseconds)
 }
 
 void cnc_reset(void)
-{
+{	
+	io_set_output(DOUT8);io_set_output(DOUT9); // Red Color RBasile
+	
+
 	// resets all realtime command flags
 	cnc_state.rt_cmd = RT_CMD_CLEAR;
 	cnc_state.feed_ovr_cmd = RT_CMD_CLEAR;

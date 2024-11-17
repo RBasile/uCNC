@@ -70,14 +70,19 @@ extern "C"
 //#define SERVO3_PORT G
 #define DOUT0_BIT 0
 #define DOUT0_PORT G
-//#define DOUT1_BIT 1
-//#define DOUT1_PORT A
-//#define DOUT5_BIT 0
-//#define DOUT5_PORT H
-//#define DOUT6_BIT 1
-//#define DOUT6_PORT H
-//#define DOUT7_BIT 0
-//#define DOUT7_PORT C
+#define DOUT1_BIT 1
+#define DOUT1_PORT A
+#define DOUT5_BIT 6
+#define DOUT5_PORT H
+#define DOUT6_BIT 6
+#define DOUT6_PORT D // Fan blower
+#define DOUT7_BIT 3
+#define DOUT7_PORT E
+#define DOUT8_BIT 4
+#define DOUT8_PORT H
+#define DOUT9_BIT 6
+#define DOUT9_PORT B
+
 #define LIMIT_X_BIT 5
 #define LIMIT_X_PORT E
 #define LIMIT_X_ISR -6
@@ -99,8 +104,11 @@ extern "C"
 #define PROBE_BIT 3
 #define PROBE_PORT G
 #define PROBE_ISR 2
-#define SAFETY_DOOR_BIT 0
-#define SAFETY_DOOR_PORT L
+//#define SAFETY_DOOR_BIT 0
+//#define SAFETY_DOOR_PORT L
+#define ESTOP_BIT 4
+#define ESTOP_PORT G
+#define ESTOP_ISR 2
 //#define DIN16_BIT 2
 //#define DIN16_PORT C
 //#define DIN16_PULLUP

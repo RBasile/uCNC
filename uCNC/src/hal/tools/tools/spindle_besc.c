@@ -66,6 +66,7 @@ static void startup_code(void)
 	io_set_pwm(SPINDLE_BESC_SERVO, SPINDLE_BESC_LOW);
 #endif
 	io_set_output(SPINDLE_BESC_POWER_RELAY);
+	io_clear_output(DOUT1);
 	cnc_delay_ms(5000);
 #endif
 }
@@ -74,6 +75,9 @@ static void shutdown_code(void)
 {
 #if ASSERT_PIN(SPINDLE_BESC_POWER_RELAY)
 	io_clear_output(SPINDLE_BESC_POWER_RELAY);
+#endif
+#if ASSERT_PIN(DOUT1)
+io_set_output(DOUT1);
 #endif
 }
 
